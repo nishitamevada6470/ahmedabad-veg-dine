@@ -1,0 +1,23 @@
+{
+  "overview": "A full-featured restaurant website for an Ahmedabad vegetarian restaurant. Includes a browseable menu with veg/non-veg filtering, table reservation system with phone number capture, restaurant info with location, and a warm food-themed color design.",
+  "features": [
+    "Vegetarian menu with dish categories, prices, and images",
+    "Veg/non-veg filter toggle",
+    "Table reservation form with phone number validation",
+    "Reservation confirmation",
+    "Restaurant info with Ahmedabad location",
+    "Warm, food-themed color palette",
+    "Mobile-responsive layout",
+    "Hero section and full navigation"
+  ],
+  "category": "restaurant-food",
+  "tags": [
+    "restaurant",
+    "vegetarian",
+    "menu",
+    "reservation",
+    "ahmedabad",
+    "food"
+  ],
+  "last_updated": "2026-04-18T11:03:11.315Z"
+}

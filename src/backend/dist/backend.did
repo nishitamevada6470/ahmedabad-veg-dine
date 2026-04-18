@@ -1,0 +1,70 @@
+type Timestamp = int;
+type Review = 
+ record {
+   createdAt: Timestamp;
+   customerName: text;
+   id: nat;
+   rating: nat;
+   reviewText: text;
+ };
+type Result_1 = 
+ variant {
+   err: text;
+   ok: ReservationId;
+ };
+type Result = 
+ variant {
+   err: text;
+   ok: nat;
+ };
+type RestaurantInfo = 
+ record {
+   address: text;
+   email: text;
+   name: text;
+   openingHours: text;
+   phone: text;
+ };
+type ReservationStatus = 
+ variant {
+   cancelled;
+   confirmed;
+   pending;
+ };
+type ReservationId = nat;
+type Reservation = 
+ record {
+   createdAt: Timestamp;
+   date: text;
+   id: ReservationId;
+   name: text;
+   partySize: nat;
+   phoneNumber: text;
+   specialRequests: opt text;
+   status: ReservationStatus;
+   time: text;
+ };
+type MenuItemId = nat;
+type MenuItem = 
+ record {
+   category: text;
+   description: text;
+   id: MenuItemId;
+   imageUrl: opt text;
+   isAvailable: bool;
+   isVegetarian: bool;
+   name: text;
+   price: nat;
+ };
+service : {
+  createReservation: (name: text, phoneNumber: text, date: text, time: 
+   text, partySize: nat, specialRequests: opt text) -> (Result_1);
+  getAllMenuItems: () -> (vec MenuItem) query;
+  getAllReviews: () -> (vec Review) query;
+  getMenuItemsByCategory: (category: text) -> (vec MenuItem) query;
+  getReservationByPhone: (phoneNumber: text) -> (vec Reservation) query;
+  getRestaurantInfo: () -> (RestaurantInfo) query;
+  getVegetarianItems: () -> (vec MenuItem) query;
+  submitReview: (customerName: text, rating: nat, reviewText: text) ->
+   (Result);
+}

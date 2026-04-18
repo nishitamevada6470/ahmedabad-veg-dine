@@ -1,0 +1,65 @@
+// Version: 1.0.0
+type MenuItemId__580787430 = Nat;
+type MenuItem__25360883 =
+  {
+    category : Text;
+    description : Text;
+    id : MenuItemId__580787430;
+    imageUrl : ?Text;
+    isAvailable : Bool;
+    isVegetarian : Bool;
+    name : Text;
+    price : Nat
+  };
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type ReservationId__559395765 = Nat;
+type ReservationStatus__638471762 = {#cancelled; #confirmed; #pending};
+type Reservation__791493290 =
+  {
+    createdAt : Timestamp__301639476;
+    date : Text;
+    id : ReservationId__559395765;
+    name : Text;
+    partySize : Nat;
+    phoneNumber : Text;
+    specialRequests : ?Text;
+    status : ReservationStatus__638471762;
+    time : Text
+  };
+type Review__513345496 =
+  {
+    createdAt : Timestamp__301639476;
+    customerName : Text;
+    id : Nat;
+    rating : Nat;
+    reviewText : Text
+  };
+type Timestamp__301639476 = Int;
+actor {
+  stable menuItems :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?MenuItem__25360883]];
+      var elementIndex : Nat__490723111
+    };
+  stable nextReservationId : {var value : Nat};
+  stable nextReviewId : {var value : Nat};
+  stable reservations :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Reservation__791493290]];
+      var elementIndex : Nat__490723111
+    };
+  stable restaurantAddress : {var value : Text};
+  stable restaurantEmail : {var value : Text};
+  stable restaurantName : {var value : Text};
+  stable restaurantOpeningHours : {var value : Text};
+  stable restaurantPhone : {var value : Text};
+  stable reviews :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Review__513345496]];
+      var elementIndex : Nat__490723111
+    }
+};
